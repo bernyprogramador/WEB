@@ -49,9 +49,8 @@
         .text-accent { color: var(--accent); }
         .border-accent { border-color: var(--accent); }
         .bg-base { background-color: var(--bg-base); }
-        .bg-base-lighter { background-color: #3e444f; } /* Un gris ligeramente más claro para contraste */
+        .bg-base-lighter { background-color: #3e444f; }
 
-        /* Ajustes de Tailwind para asegurar que los colores personalizados se usen correctamente */
         .text-white { color: var(--text-light); }
         .text-slate-200 { color: var(--text-light); opacity: 0.9; }
         .text-slate-300 { color: var(--text-light); opacity: 0.8; }
@@ -91,15 +90,36 @@
 </head>
 <body class="bg-base">
 
+    <!-- Barra de Navegación Fija con menú móvil -->
     <nav class="fixed top-0 left-0 w-full bg-base z-40 shadow-md py-4" style="padding-top: 40px;">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="index.html" class="text-white text-2xl font-bold font-heading">ASESORÍA ALÉRGENOS</a>
-            <ul class="flex space-x-6">
-                <li><a href="servicios.html" class="text-white hover:text-accent transition duration-300">Servicios</a></li>
+            <a href="index.html" class="text-white text-xl md:text-2xl font-bold font-heading">ASESORÍA ALÉRGENOS</a>
+            
+            <!-- Menú de escritorio -->
+            <ul class="hidden md:flex space-x-6 items-center">
+                <li><a href="index.html#servicio" class="text-white hover:text-accent transition duration-300">Servicios</a></li>
                 <li><a href="normativa.html" class="text-white hover:text-accent transition duration-300">La Normativa</a></li>
                 <li><a href="quienes-somos.html" class="text-white hover:text-accent transition duration-300">Quiénes Somos</a></li>
                 <li><a href="testimonios.html" class="text-white hover:text-accent transition duration-300">Testimonios</a></li>
                 <li><a href="contacto.html" class="bg-accent text-white px-4 py-2 rounded-full hover:bg-accent-hover transition duration-300">Contacto</a></li>
+            </ul>
+
+            <!-- Botón de menú móvil -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menú desplegable móvil -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="flex flex-col items-center mt-4 space-y-4">
+                <li><a href="index.html#servicio" class="text-white hover:text-accent transition duration-300">Servicios</a></li>
+                <li><a href="normativa.html" class="text-white hover:text-accent transition duration-300">La Normativa</a></li>
+                <li><a href="quienes-somos.html" class="text-white hover:text-accent transition duration-300">Quiénes Somos</a></li>
+                <li><a href="testimonios.html" class="text-white hover:text-accent transition duration-300">Testimonios</a></li>
+                <li><a href="contacto.html" class="bg-accent text-white px-6 py-2 rounded-full hover:bg-accent-hover transition duration-300">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -109,74 +129,139 @@
         <button onclick="document.getElementById('alert-bar').style.display='none'" class="ml-4 text-xl font-bold hover:text-yellow-300 transition-colors" aria-label="Cerrar alerta">&times;</button>
     </div>
     
-    <div style="padding-top: 40px;"> 
-        <header class="hero-bg text-white pt-24 md:pt-32"> 
-            <div class="container mx-auto px-4 py-16 md:py-24 text-center">
-                <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-white font-heading">¿Multas de hasta <span class="text-accent">60.000€</span> por Alérgenos?</h1>
-                <h2 class="text-lg md:text-xl text-white max-w-3xl mx-auto mb-8 font-heading">No es una opción, es una <span class="text-accent font-bold">OBLIGACIÓN LEGAL</span>. Protege tu negocio, evita sanciones y cumple con la normativa europea y española YA.</h2>
-                <p class="max-w-3xl mx-auto text-white text-base sm:text-lg mb-10">El Reglamento UE 1169/2011 y la legislación nacional exigen informar sobre los 14 alérgenos principales. Ignorarlo expone tu negocio a graves consecuencias económicas y legales. Nosotros te blindamos.</p>
-                <a href="contacto.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Diagnóstico Gratuito y Anti-Multas</a>
+    <div style="padding-top: 88px;"> <!-- Ajustado para la barra de navegación y la alerta -->
+    
+    <header class="hero-bg text-white"> 
+        <div class="container mx-auto px-4 py-16 md:py-24 text-center">
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-white font-heading">¿Multas de hasta <span class="text-accent">60.000€</span> por Alérgenos?</h1>
+            <h2 class="text-lg md:text-xl text-white max-w-3xl mx-auto mb-8 font-heading">No es una opción, es una <span class="text-accent font-bold">OBLIGACIÓN LEGAL</span>. Protege tu negocio, evita sanciones y cumple con la normativa europea y española YA.</h2>
+            <p class="max-w-3xl mx-auto text-white text-base sm:text-lg mb-10">El Reglamento UE 1169/2011 y la legislación nacional exigen informar sobre los 14 alérgenos principales. Ignorarlo expone tu negocio a graves consecuencias económicas y legales. Nosotros te blindamos.</p>
+            <a href="contacto.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Diagnóstico Gratuito y Anti-Multas</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="oferta" class="py-12 bg-accent">
+            <div class="container mx-auto px-4 text-center text-white">
+                <h3 class="text-xl sm:text-2xl font-bold font-heading">Oferta Especial</h3>
+                <p class="mt-2 max-w-2xl mx-auto">Te hacemos tu presupuesto GRATIS y personalizado para tu local. Aprovecha un <span class="font-extrabold">50% de Descuento</span> en tu Paquete de Cumplimiento Normativo.</p>
+                <p class="text-sm mt-2">Es el momento perfecto para asegurar tu negocio. ¡No dejes pasar esta oportunidad!</p>
+                <a href="contacto.html" class="mt-4 inline-block bg-base hover:bg-base-lighter text-white font-bold py-2 px-6 rounded-full text-base transition duration-300">Solicitar Presupuesto con Descuento</a>
             </div>
-        </header>
+        </section>
 
-        <main>
-            <section id="oferta" class="py-12 bg-accent">
-                <div class="container mx-auto px-4 text-center text-white">
-                    <h3 class="text-xl sm:text-2xl font-bold font-heading">Oferta Especial</h3>
-                    <p class="mt-2 max-w-2xl mx-auto">Te hacemos tu presupuesto GRATIS y personalizado para tu local. Aprovecha un <span class="font-extrabold">50% de Descuento</span> en tu Paquete de Cumplimiento Normativo.</p>
-                    <p class="text-sm mt-2">Es el momento perfecto para asegurar tu negocio. ¡No dejes pasar esta oportunidad!</p>
-                    <a href="contacto.html" class="mt-4 inline-block bg-base hover:bg-base-lighter text-white font-bold py-2 px-6 rounded-full text-base transition duration-300">Solicitar Presupuesto con Descuento</a>
+        <section id="servicio" class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">Una Solución Integral para tu Negocio</h2>
+                    <p class="text-slate-200 text-lg">Ofrecemos un paquete de cumplimiento normativo que cubre todos los aspectos para tu total tranquilidad.</p>
                 </div>
-            </section>
-
-            <section id="servicio" class="py-16 md:py-24">
-                <div class="container mx-auto px-4 text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">Nuestros Servicios: Tu Tranquilidad Garantizada</h2>
-                    <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">Ofrecemos un paquete de cumplimiento normativo que cubre todos los aspectos para tu total tranquilidad, desde el análisis de carta hasta el soporte continuo.</p>
-                    <a href="servicios.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">VER TODOS LOS SERVICIOS</a>
+                <div class="max-w-4xl mx-auto bg-base-lighter p-8 rounded-2xl shadow-lg">
+                    <ul class="space-y-8">
+                        <li class="flex items-start gap-x-4"><div class="bg-accent/20 p-3 rounded-full"><i class="ph-magnifying-glass text-2xl text-accent"></i></div><div><h3 class="font-bold text-lg text-white font-heading">Análisis de Carta</h3><p class="text-slate-300 mt-1">Identificamos los 14 alérgenos obligatorios en cada plato mediante un estudio minucioso.</p></div></li>
+                        <li class="flex items-start gap-x-4"><div class="bg-accent/20 p-3 rounded-full"><i class="ph-file-text text-2xl text-accent"></i></div><div><h3 class="font-bold text-lg text-white font-heading">Diseño de Carta de Alérgenos</h3><p class="text-slate-300 mt-1">Creamos un documento profesional y fácil de entender para tus clientes y tu equipo.</p></div></li>
+                        <li class="flex items-start gap-x-4"><div class="bg-accent/20 p-3 rounded-full"><i class="ph-seal-check text-2xl text-accent"></i></div><div><h3 class="font-bold text-lg text-white font-heading">Declaración de Cumplimiento</h3><p class="text-slate-300 mt-1">Te entregamos el documento oficial validado, tu aval legal listo para cualquier inspección.</p></div></li>
+                        <li class="flex items-start gap-x-4"><div class="bg-accent/20 p-3 rounded-full"><i class="ph-users-three text-2xl text-accent"></i></div><div><h3 class="font-bold text-lg text-white font-heading">Guía Visual para tu Equipo</h3><p class="text-slate-300 mt-1">Formamos a tu personal con una mini-guía sencilla y práctica para actuar con seguridad.</p></div></li>
+                        <li class="flex items-start gap-x-4"><div class="bg-accent/20 p-3 rounded-full"><i class="ph-package text-2xl text-accent"></i></div><div><h3 class="font-bold text-lg text-white font-heading">Entrega Rápida (PDF y Físico)</h3><p class="text-slate-300 mt-1">Recibirás toda la documentación en formato digital y físico, siempre a mano.</p></div></li>
+                        <li class="flex items-start gap-x-4"><div class="bg-accent/20 p-3 rounded-full"><i class="ph-phone-call text-2xl text-accent"></i></div><div><h3 class="font-bold text-lg text-white font-heading">Soporte Continuo</h3><p class="text-slate-300 mt-1">Resolvemos tus dudas y te mantenemos al día sobre cambios en la legislación.</p></div></li>
+                    </ul>
+                    <div class="text-center mt-12">
+                        <a href="servicios.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">VER TODOS LOS SERVICIOS</a>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="problema" class="py-16 md:py-24 bg-base-lighter">
-                <div class="container mx-auto px-4 text-center">
+        <!-- El resto del contenido de la página sigue aquí... -->
+        <section id="problema" class="py-16 md:py-24 bg-base-lighter">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">¿Por Qué es Crucial Cumplir la Normativa?</h2>
-                    <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">La ley exige informar claramente sobre los 14 alérgenos obligatorios. El incumplimiento puede acarrear multas y dañar tu reputación.</p>
-                    <a href="normativa.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">CONOCE LA NORMATIVA EN PROFUNDIDAD</a>
                 </div>
-            </section>
+                <div class="max-w-4xl mx-auto p-8 bg-base rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-bold text-white font-heading">Reglamento (UE) 1169/2011 y RD 126/2015</h3>
+                    <p class="mt-2 text-slate-200">Estas leyes obligan a cualquier establecimiento que sirva comida a informar de manera clara y por escrito sobre los <span class="font-bold text-accent">14 alérgenos de declaración obligatoria</span>. El incumplimiento puede acarrear sanciones económicas de hasta 6.000€ y un daño irreparable a tu reputación.</p>
+                    <div class="mt-4 bg-red-900/50 border-l-4 border-red-500 text-red-300 p-4 rounded-md">
+                        <p><span class="font-bold text-white">¡Atención!</span> La información verbal no es suficiente. Debe existir un soporte escrito (carta, cartel, etc.) siempre disponible y actualizado para el cliente.</p>
+                    </div>
+                    <div class="text-center mt-12">
+                        <a href="normativa.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">CONOCE LA NORMATIVA EN PROFUNDIDAD</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <section id="comparativa" class="py-16 md:py-24">
-                <div class="container mx-auto px-4 text-center">
+        <section id="comparativa" class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">La Diferencia es Clara: Tu Tranquilidad y Seguridad</h2>
-                    <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">Descubre cómo nuestra asesoría elimina riesgos legales y fortalece la confianza de tus clientes, comparado con no tener soporte.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-4 rounded-2xl shadow-xl overflow-hidden bg-base-lighter">
+                    <div class="p-8"><h3 class="text-2xl font-bold text-red-500 mb-6 text-center font-heading">Sin Asesoría</h3><ul class="space-y-4"><li class="flex items-start"><i class="ph-x-circle text-2xl text-red-500 mr-3 shrink-0"></i><div><span class="font-bold text-white">Riesgo constante de sanción:</span><p class="text-sm text-slate-300">Tu negocio expuesto a multas elevadas y visitas inesperadas de inspección.</p></div></li><li class="flex items-start"><i class="ph-x-circle text-2xl text-red-500 mr-3 shrink-0"></i><div><span class="font-bold text-white">Carta incompleta o incorrecta:</span><p class="text-sm text-slate-300">Genera confusión y puede derivar en problemas de salud o reputación.</p></div></li><li class="flex items-start"><i class="ph-x-circle text-2xl text-red-500 mr-3 shrink-0"></i><div><span class="font-bold text-white">Clientes inseguros y desconfiados:</span><p class="text-sm text-slate-300">Pone en riesgo su salud y deteriora la imagen de tu establecimiento, perdiendo su lealtad.</p></div></li></ul></div>
+                    <div class="p-8 bg-base"><h3 class="text-2xl font-bold text-complementary mb-6 text-center font-heading">Con Asesoría</h3><ul class="space-y-4"><li class="flex items-start"><i class="ph-check-circle text-2xl text-complementary mr-3 shrink-0"></i><div><span class="font-bold text-white">Cero riesgo legal:</span><p class="text-sm text-slate-300">Cumplimiento garantizado de toda la normativa vigente, para tu absoluta tranquilidad.</p></div></li><li class="flex items-start"><i class="ph-check-circle text-2xl text-complementary mr-3 shrink-0"></i><div><span class="font-bold text-white">Carta validada y profesional:</span><p class="text-sm text-slate-300">Documentación clara, precisa y siempre actualizada, lista para cualquier inspección.</p></div></li><li class="flex items-start"><i class="ph-check-circle text-2xl text-complementary mr-3 shrink-0"></i><div><span class="font-bold text-white">Clientes informados y seguros:</span><p class="text-sm text-slate-300">Ofrece una experiencia gastronómica sin preocupaciones, fortaleciendo la confianza en tu marca.</p></div></li></ul></div>
+                </div>
+                <div class="text-center mt-12">
                     <a href="testimonios.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">LEE OPINIONES DE NUESTROS CLIENTES</a>
                 </div>
-            </section>
-            
-            <section id="sobre-mi" class="py-16 md:py-24 bg-base-lighter">
-                <div class="container mx-auto px-4 text-center">
+            </div>
+        </section>
+        
+        <section id="sobre-mi" class="py-16 md:py-24 bg-base-lighter">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">Ponte en Manos de un Experto</h2>
-                    <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">Conoce a Bernardo Ribeiro, tu asesor especializado en seguridad alimentaria y normativa de alérgenos, con experiencia directa en hostelería.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
+                    <div class="md:col-span-1">
+                        <img src="images/Bernyribeiro.webp" alt="Foto de Bernardo Ribeiro" class="rounded-full mx-auto w-48 h-48 md:w-64 md:h-64 object-cover shadow-lg border-4 border-accent">
+                    </div>
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-bold text-white font-heading">Bernardo Ribeiro</h3>
+                        <p class="mt-2 text-slate-200">Como asesor especializado en Seguridad Alimentaria y normativa de alérgenos, mi misión es ayudar a negocios como el tuyo a navegar las complejidades de las regulaciones. Ofrezco soluciones prácticas y efectivas para garantizar que tu establecimiento cumpla con la ley y se posicione como un lugar seguro y confiable para todos los clientes.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <p class="text-slate-200 mb-4">Conocemos a la perfección los 14 alérgenos de declaración obligatoria:</p>
+                    <img src="images/alergenos-oficial.png" alt="Cartel de los 14 alérgenos" class="mx-auto max-w-full md:max-w-3xl h-auto rounded-lg shadow-md">
+                </div>
+                <div class="text-center mt-12">
                     <a href="quienes-somos.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">MÁS SOBRE NOSOTROS</a>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="faq" class="py-16 md:py-24">
-                <div class="container mx-auto px-4 text-center">
+        <section id="faq" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">Preguntas Frecuentes</h2>
-                    <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">Resolvemos las dudas más comunes sobre la normativa de alérgenos y nuestros servicios.</p>
-                    <a href="contacto.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">CONTACTA CON TUS DUDAS</a>
                 </div>
-            </section>
+                <div class="space-y-4">
+                    <details class="group bg-base-lighter p-4 rounded-lg cursor-pointer"><summary class="flex justify-between items-center font-semibold text-white font-heading">¿Estoy obligado si solo sirvo tapas o menú del día?<i class="ph-plus-circle text-xl transition-transform group-open:rotate-45 text-accent"></i></summary><p class="text-slate-300 mt-2">Sí. La normativa se aplica a cualquier tipo de comida servida al público, sin importar el formato o el tamaño del local. Esto incluye bares, cafeterías, food trucks, comedores, etc.</p></details>
+                    <details class="group bg-base-lighter p-4 rounded-lg cursor-pointer"><summary class="flex justify-between items-center font-semibold text-white font-heading">¿Quién puede sancionarme por no cumplir?<i class="ph-plus-circle text-xl transition-transform group-open:rotate-45 text-accent"></i></summary><p class="text-slate-300 mt-2">Las inspecciones y posibles sanciones pueden venir de varias autoridades, como la inspección de Sanidad, la guardia urbana o la propia comunidad autónoma.</p></details>
+                    <details class="group bg-base-lighter p-4 rounded-lg cursor-pointer"><summary class="flex justify-between items-center font-semibold text-white font-heading">¿Cuánto tiempo se tarda en tener la documentación?<i class="ph-plus-circle text-xl transition-transform group-open:rotate-45 text-accent"></i></summary><p class="text-slate-300 mt-2">Nuestro proceso es muy ágil. Una vez analizada tu carta, podemos tener toda tu documentación lista en un plazo de 48 a 72 horas.</p></details>
+                </div>
+            </div>
+        </section>
 
-            <section id="contacto" class="py-16 md:py-24 bg-base-lighter">
-                <div class="container mx-auto px-4 text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white font-heading">Contacta Ahora y Pide tu Presupuesto</h2>
-                    <p class="text-slate-200 mt-3 max-w-3xl mx-auto mb-8">Rellena el formulario o llámanos. Te daremos un presupuesto gratuito y sin compromiso en menos de 24 horas.</p>
-                    <a href="contacto.html" class="w-full sm:w-auto bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Enviar Consulta Urgente y Blindar Mi Negocio</a>
+        <section id="contacto" class="py-16 md:py-24 bg-base-lighter">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="bg-base p-8 rounded-2xl shadow-2xl">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white font-heading">Contacta Ahora y Pide tu Presupuesto</h2>
+                        <p class="text-slate-200 mt-3">Rellena el formulario o llámanos. Te daremos un presupuesto gratuito y sin compromiso en menos de 24 horas.</p>
+                    </div>
+                    <form id="contactForm" action="https://formspree.io/f/movwkrdj" method="POST" class="space-y-6">
+                        <div><label for="name" class="block text-sm font-semibold text-slate-200 mb-1">Tu Nombre</label><input type="text" id="name" name="name" required class="w-full px-4 py-2 border bg-base-lighter border-gray-600 text-white rounded-md focus:ring-2 focus:ring-accent focus:border-accent transition"></div>
+                        <div><label for="email" class="block text-sm font-semibold text-slate-200 mb-1">Correo Electrónico</label><input type="email" id="email" name="email" required class="w-full px-4 py-2 border bg-base-lighter border-gray-600 text-white rounded-md focus:ring-2 focus:ring-accent focus:border-accent transition"></div>
+                        <div><label for="phone" class="block text-sm font-semibold text-slate-200 mb-1">Teléfono</label><input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border bg-base-lighter border-gray-600 text-white rounded-md focus:ring-2 focus:ring-accent focus:border-accent transition"></div>
+                        <div><label for="message" class="block text-sm font-semibold text-slate-200 mb-1">Mensaje (Opcional)</label><textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border bg-base-lighter border-gray-600 text-white rounded-md focus:ring-2 focus:ring-accent focus:border-accent transition" placeholder="Cuéntanos un poco sobre tu negocio..."></textarea></div>
+                        <button type="submit" class="w-full bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">Enviar Consulta Urgente y Blindar Mi Negocio</button>
+                    </form>
+                    <div id="confirmationMessage" class="hidden mt-6 text-center bg-green-900/50 border border-green-500 text-green-300 px-4 py-3 rounded-md"><p class="font-bold">¡Gracias por contactar!</p><p class="text-sm">Hemos recibido tu solicitud. Nos pondremos en contacto contigo muy pronto.</p></div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+
     </div>
 
     <footer class="bg-base text-slate-300 border-t border-gray-700">
@@ -201,26 +286,20 @@
     </footer>
 
     <script>
-        // Si hay una barra de alerta, el padding superior del div principal se ajusta dinámicamente.
-        // Esto es opcional, pero útil si la altura de la alerta puede variar o no siempre está presente.
-        const alertBar = document.getElementById('alert-bar');
-        const mainContentDiv = document.querySelector('body > div:nth-child(3)'); // El div que envuelve main y header
+        const form = document.getElementById('contactForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            form.style.display = 'none';
+            confirmationMessage.style.display = 'block';
+        });
 
-        if (alertBar && mainContentDiv) {
-            const updatePadding = () => {
-                const alertHeight = alertBar.offsetHeight;
-                const navHeight = document.querySelector('nav').offsetHeight; // Asume que la nav existe
-                mainContentDiv.style.paddingTop = (alertHeight + navHeight) + 'px';
-            };
-            
-            // Llama a la función al cargar y al redimensionar
-            window.addEventListener('load', updatePadding);
-            window.addEventListener('resize', updatePadding);
-            
-            // Observador para cambios en la altura de la barra de alerta (ej. si se cierra)
-            const observer = new MutationObserver(updatePadding);
-            observer.observe(alertBar, { attributes: true, childList: true, subtree: true });
-        }
+        // Lógica para el menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     </script>
 </body>
 </html>
