@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asesoría de Alérgenos para Hostelería | Bernardo Ribeiro</title>
+    <title>La Normativa de Alérgenos | Asesoría de Alérgenos para Hostelería</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -21,12 +21,14 @@
             --accent: #FF6600;
             --accent-hover: #E65C00;
             --complementary: #007bff;
+            --bg-light: #f8f9fa; /* Fondo claro para contraste si se necesita */
+            --text-dark: #282c34; /* Texto oscuro para fondos claros si se necesita */
         }
 
         body {
             font-family: 'Lato', sans-serif;
             scroll-behavior: smooth;
-            background-color: var(--bg-base);
+            background-color: var(--bg-base); /* Fondo oscuro principal para esta página */
             color: var(--text-light);
         }
 
@@ -34,26 +36,15 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Estilo para el fondo del encabezado con una imagen y un degradado oscuro */
-        .hero-bg {
-            background-image: 
-                linear-gradient(rgba(40, 44, 52, 0.95), rgba(40, 44, 52, 0.95)),
-                url('https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-            background-size: cover;
-            background-position: center;
-        }
-        
         /* Clases personalizadas para la nueva paleta */
         .bg-accent { background-color: var(--accent); }
         .hover\:bg-accent-hover:hover { background-color: var(--accent-hover); }
         .text-accent { color: var(--accent); }
         .border-accent { border-color: var(--accent); }
         .bg-base { background-color: var(--bg-base); }
-        .bg-base-lighter { background-color: #3e444f; }
-
-        .text-white { color: var(--text-light); }
-        .text-slate-200 { color: var(--text-light); opacity: 0.9; }
-        .text-slate-300 { color: var(--text-light); opacity: 0.8; }
+        .bg-base-lighter { background-color: #3e444f; } /* Un gris ligeramente más claro para contraste */
+        .bg-light { background-color: var(--bg-light); }
+        .text-dark { color: var(--text-dark); }
     </style>
 
     <script>
@@ -66,18 +57,24 @@
                         'accent': 'var(--accent)',
                         'accent-hover': 'var(--accent-hover)',
                         'complementary': 'var(--complementary)',
+                        'light': 'var(--bg-light)',
+                        'dark-text': 'var(--text-dark)',
                         'slate': {
                             200: 'rgba(255, 255, 255, 0.9)',
                             300: 'rgba(255, 255, 255, 0.8)',
                             400: 'rgba(255, 255, 255, 0.7)',
                             500: 'rgba(255, 255, 255, 0.6)',
                         },
+                        'gray': {
+                            700: '#374151', 
+                            900: '#1F2937',
+                        },
                         'red': {
                             500: '#EF4444',
                             600: '#DC2626',
                             900: '#7F1D1D',
                         },
-                        'green': {
+                         'green': {
                             300: '#86EFAC',
                             500: '#22C55E',
                             900: '#14532D',
@@ -90,112 +87,81 @@
 </head>
 <body class="bg-base">
 
-    <nav class="fixed top-0 left-0 w-full bg-base z-40 shadow-md py-4" style="padding-top: 40px;">
+    <nav class="fixed top-0 left-0 w-full bg-base z-40 shadow-md py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="index.html" class="text-white text-xl md:text-2xl font-bold font-heading">ASESORÍA ALÉRGENOS</a>
-            
+            <a href="index.html" class="text-white text-2xl font-bold font-heading">ASESORÍA ALÉRGENOS</a>
             <ul class="hidden md:flex space-x-6 items-center">
                 <li><a href="servicios.html" class="text-white hover:text-accent transition duration-300">Servicios</a></li>
-                <li><a href="normativa.html" class="text-white hover:text-accent transition duration-300">La Normativa</a></li>
+                <li><a href="normativa.html" class="text-accent hover:text-accent-hover transition duration-300 font-bold">La Normativa</a></li>
                 <li><a href="quienes-somos.html" class="text-white hover:text-accent transition duration-300">Quiénes Somos</a></li>
                 <li><a href="testimonios.html" class="text-white hover:text-accent transition duration-300">Testimonios</a></li>
                 <li><a href="contacto.html" class="bg-accent text-white px-4 py-2 rounded-full hover:bg-accent-hover transition duration-300">Contacto</a></li>
             </ul>
-
-            <div class="md:hidden">
+             <div class="md:hidden">
                 <button id="menu-btn" class="text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-base">
+         <div id="mobile-menu" class="hidden md:hidden bg-base">
             <ul class="flex flex-col items-center mt-4 space-y-4 pb-4">
                 <li><a href="servicios.html" class="text-white hover:text-accent transition duration-300">Servicios</a></li>
-                <li><a href="normativa.html" class="text-white hover:text-accent transition duration-300">La Normativa</a></li>
+                <li><a href="normativa.html" class="text-accent font-bold transition duration-300">La Normativa</a></li>
                 <li><a href="quienes-somos.html" class="text-white hover:text-accent transition duration-300">Quiénes Somos</a></li>
                 <li><a href="testimonios.html" class="text-white hover:text-accent transition duration-300">Testimonios</a></li>
                 <li><a href="contacto.html" class="bg-accent text-white px-6 py-2 rounded-full hover:bg-accent-hover transition duration-300">Contacto</a></li>
             </ul>
         </div>
     </nav>
-
-    <div id="alert-bar" class="bg-red-600 text-white px-4 py-2 text-center text-sm sm:text-base font-bold fixed top-0 w-full z-50 flex justify-center items-center shadow-lg">
-        <p>⚠️ Durante 2025, las inspecciones se han intensificado. ¿Tienes tu carta actualizada?</p>
-        <button onclick="document.getElementById('alert-bar').style.display='none'" class="ml-4 text-xl font-bold hover:text-yellow-300 transition-colors" aria-label="Cerrar alerta">&times;</button>
-    </div>
     
-    <div style="padding-top: 88px;"> 
-    <header class="hero-bg text-white"> 
-        <div class="container mx-auto px-4 py-16 md:py-24 text-center">
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-white font-heading">¿Multas de hasta <span class="text-accent">60.000€</span> por Alérgenos?</h1>
-            <h2 class="text-lg md:text-xl text-white max-w-3xl mx-auto mb-8 font-heading">No es una opción, es una <span class="text-accent font-bold">OBLIGACIÓN LEGAL</span>. Protege tu negocio, evita sanciones y cumple con la normativa europea y española YA.</h2>
-            <p class="max-w-3xl mx-auto text-white text-base sm:text-lg mb-10">El Reglamento UE 1169/2011 y la legislación nacional exigen informar sobre los 14 alérgenos principales. Ignorarlo expone tu negocio a graves consecuencias económicas y legales. Nosotros te blindamos.</p>
-            <a href="contacto.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-6 md:px-8 rounded-full text-base md:text-lg transition duration-300 transform hover:scale-105">Diagnóstico Gratuito y Anti-Multas</a>
-        </div>
-    </header>
+    <div style="padding-top: 80px;"> 
+    <main class="bg-base text-light">
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-4xl mx-auto mb-12">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-6 text-light font-heading">LEY DE ALÉRGENOS: Tu <span class="text-accent">Obligación Ineludible</span> y las Multas REALES que NO Puedes Permitirte Ignorar.</h1>
+                    <p class="text-slate-200 text-lg">La normativa europea y española establece un marco legal estricto para la información al consumidor sobre alérgenos. Esto no es una sugerencia; es una <span class="text-accent font-bold">responsabilidad jurídica y económica INELUDIBLE</span> para cada establecimiento que ofrezca alimentos no envasados. Ignorarla no solo pone en riesgo la salud pública, sino que es una apuesta temeraria por el futuro de tu negocio.</p>
+                </div>
+                
+                <div class="max-w-5xl mx-auto bg-base-lighter p-8 rounded-2xl shadow-lg mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-light font-heading">Marco Legal Principal que Te Afecta: Conoce tus Cadenas (y cómo romperlas).</h2>
+                    <ul class="list-disc list-inside space-y-4 text-slate-200">
+                        <li><b>Reglamento (UE) nº 1169/2011 del Parlamento Europeo y del Consejo, de 25 de octubre de 2011:</b> Este es el pilar fundamental que establece la obligación inequívoca de informar sobre la presencia de los <b>14 alérgenos de declaración obligatoria</b>. Es la base de tu responsabilidad.</li>
+                        <li><b>Real Decreto 126/2015, de 27 de febrero:</b> La adaptación española que especifica CÓMO debe darse esta información en restaurantes, bares, y otros establecimientos. El "desconocimiento" de este RD no exime de sanción.</li>
+                        <li><b>Reglamento (CE) nº 852/2004 del Parlamento Europeo y del Consejo, de 29 de abril de 2004:</b> Exige a los operadores alimentarios establecer y mantener procedimientos basados en los principios del <b>APPCC</b>. Sin un sistema APPCC robusto, la gestión de alérgenos es una quimera y un riesgo legal.</li>
+                        <li><b>Legislación Autonómica y Local:</b> Suma complejidad. Cada Comunidad Autónoma (ej. <b>Decreto 152/2021 en Cataluña</b>) y ayuntamiento pueden desarrollar normativas específicas. Es una red legal intrincada, y cada hilo suelto es una potencial <span class="text-accent font-bold">multa</span>.</li>
+                    </ul>
+                </div>
 
-    <main>
-        <section id="oferta" class="py-12 bg-accent">
-            <div class="container mx-auto px-4 text-center text-white">
-                <h3 class="text-xl sm:text-2xl font-bold font-heading">Oferta Especial</h3>
-                <p class="mt-2 max-w-2xl mx-auto">Te hacemos tu presupuesto GRATIS y personalizado para tu local. Aprovecha un <span class="font-extrabold">50% de Descuento</span> en tu Paquete de Cumplimiento Normativo.</p>
-                <p class="text-sm mt-2">Es el momento perfecto para asegurar tu negocio. ¡No dejes pasar esta oportunidad!</p>
-                <a href="contacto.html" class="mt-4 inline-block bg-base hover:bg-base-lighter text-white font-bold py-2 px-4 md:px-6 rounded-full text-base transition duration-300">Solicitar Presupuesto con Descuento</a>
+                <div class="max-w-5xl mx-auto bg-base-lighter p-8 rounded-2xl shadow-lg mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-light font-heading">Las Multas y Sanciones REALES que Debes Evitar: El Costo de la Negligencia.</h2>
+                    <p class="mb-6 text-slate-200">El incumplimiento de la normativa sobre alérgenos no es una simple advertencia. Es una infracción catalogada como grave o muy grave según la <b>Ley 14/1986, de 25 de abril, General de Sanidad</b>, y la <b>Ley 33/2011, de 4 de octubre, General de Salud Pública</b>. Y las consecuencias son devastadoras:</p>
+                    <ul class="list-disc list-inside space-y-4 text-slate-200">
+                        <li><b>Sanciones Económicas: ¿Cuánto te puede costar NO cumplir?</b>
+                            <ul class="list-circle list-inside ml-6 space-y-2 mt-2">
+                                <li><b>Infracciones leves: Hasta <span class="text-accent">3.000€</span></b> (El precio de un pequeño error).</li>
+                                <li><b>Infracciones graves: Desde 3.001€ hasta <span class="text-accent">60.000€</span></b> (¡Un golpe directo y demoledor a tu rentabilidad!)</li>
+                                <li><b>Infracciones muy graves: Desde 60.001€ hasta <span class="text-accent">600.000€</span></b> (Casos extremos de riesgo para la salud o reincidencia grave. Un cataclismo para tu negocio).</li>
+                            </ul>
+                        </li>
+                        <li><b>Medidas Cautelares y Accesorias:</b> Más allá de la multa, la autoridad sanitaria puede ordenar el <b>cierre temporal o definitivo</b> de tu establecimiento, la retirada inmediata de productos, la suspensión de tu actividad e incluso la <b>inhabilitación para el ejercicio profesional</b>.</li>
+                        <li><b>Daño Reputacional Irreparable:</b> La publicidad de las sanciones y la pérdida de confianza del cliente son un golpe mortal. Recuperar la credibilidad es mucho más costoso y difícil que cualquier sanción económica. Tu marca, en juego.</li>
+                        <li><b>Responsabilidad Penal:</b> En los casos más graves, especialmente si se causa un daño a la salud o se pone en riesgo de forma deliberada, las consecuencias pueden ir más allá de lo administrativo y conllevar penas de prisión.</li>
+                    </ul>
+                </div>
+
+                <div class="text-center mt-12 max-w-3xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-light font-heading">Los 14 Alérgenos de Declaración Obligatoria</h2>
+                    <p class="text-slate-200 mb-8">Es fundamental conocerlos e informarlos correctamente para evitar riesgos y cumplir la ley.</p>
+                    <img src="images/alergenos-oficial.png" alt="Cartel de los 14 alérgenos" class="mx-auto max-w-full h-auto rounded-lg shadow-md border-2 border-base">
+                </div>
+
+                <div class="text-center mt-16">
+                    <a href="contacto.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 font-heading">Contactar</a>
+                </div>
             </div>
         </section>
-
-        <section id="servicio" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">Nuestros Servicios: Tu Tranquilidad Garantizada</h2>
-                <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">Ofrecemos un paquete de cumplimiento normativo que cubre todos los aspectos para tu total tranquilidad, desde el análisis de carta hasta el soporte continuo.</p>
-                <a href="servicios.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-6 md:px-8 rounded-full text-base md:text-lg transition duration-300 transform hover:scale-105">VER TODOS LOS SERVICIOS</a>
-            </div>
-        </section>
-
-        <section id="problema" class="py-16 md:py-24 bg-base-lighter">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">¿Por Qué es Crucial Cumplir la Normativa?</h2>
-                <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">La ley exige informar claramente sobre los 14 alérgenos obligatorios. El incumplimiento puede acarrear multas y dañar tu reputación.</p>
-                <a href="normativa.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-6 md:px-8 rounded-full text-base md:text-lg transition duration-300 transform hover:scale-105">Conoce la normativa</a>
-            </div>
-        </section>
-
-        <section id="comparativa" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">La Diferencia es Clara: Tu Tranquilidad y Seguridad</h2>
-                <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">Descubre cómo nuestra asesoría elimina riesgos legales y fortalece la confianza de tus clientes, comparado con no tener soporte.</p>
-                <a href="testimonios.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-6 md:px-8 rounded-full text-base md:text-lg transition duration-300 transform hover:scale-105">Opiniones de clientes</a>
-            </div>
-        </section>
-        
-        <section id="sobre-mi" class="py-16 md:py-24 bg-base-lighter">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">Ponte en Manos de un Experto</h2>
-                <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">Conoce a Bernardo Ribeiro, tu asesor especializado en seguridad alimentaria y normativa de alérgenos, con experiencia directa en hostelería.</p>
-                <a href="quienes-somos.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-6 md:px-8 rounded-full text-base md:text-lg transition duration-300 transform hover:scale-105">MÁS SOBRE NOSOTROS</a>
-            </div>
-        </section>
-
-        <section id="faq" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">Preguntas Frecuentes</h2>
-                <p class="text-slate-200 text-lg max-w-3xl mx-auto mb-8">Resolvemos las dudas más comunes sobre la normativa de alérgenos y nuestros servicios.</p>
-                <a href="contacto.html" class="bg-accent hover:bg-accent-hover text-white font-bold py-3 px-6 md:px-8 rounded-full text-base md:text-lg transition duration-300 transform hover:scale-105">Asesoría gratis</a>
-            </div>
-        </section>
-
-        <section id="contacto" class="py-16 md:py-24 bg-base-lighter">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white font-heading">Contacta Ahora y Pide tu Presupuesto</h2>
-                <p class="text-slate-200 mt-3 max-w-3xl mx-auto mb-8">Rellena el formulario o llámanos. Te daremos un presupuesto gratuito y sin compromiso en menos de 24 horas.</p>
-                <a href="contacto.html" class="w-full sm:w-auto bg-accent hover:bg-accent-hover text-white font-bold py-3 px-6 md:px-8 rounded-full text-base md:text-lg transition duration-300 transform hover:scale-105">Enviar consulta</a>
-            </div>
-        </section>
-
     </main>
-
-    </div>
 
     <footer class="bg-base text-slate-300 border-t border-gray-700">
         <div class="container mx-auto px-4 py-10">
@@ -217,8 +183,7 @@
             </div>
         </div>
     </footer>
-
-    <script>
+      <script>
         // Lógica para el menú móvil
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -228,4 +193,3 @@
     </script>
 </body>
 </html>
-
