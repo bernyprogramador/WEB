@@ -90,10 +90,12 @@
 </head>
 <body class="bg-base">
 
-    <nav class="fixed top-0 left-0 w-full bg-base z-40 shadow-md py-4" style="padding-top: 40px;">
+    <!-- Menú de Navegación Fijo -->
+    <nav class="fixed top-0 left-0 w-full bg-base z-40 shadow-md py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="index.html" class="text-white text-xl md:text-2xl font-bold font-heading">ASESORÍA ALÉRGENOS</a>
             
+            <!-- Menú de escritorio -->
             <ul class="hidden md:flex space-x-6 items-center">
                 <li><a href="servicios.html" class="text-white hover:text-accent transition duration-300">Servicios</a></li>
                 <li><a href="normativa.html" class="text-white hover:text-accent transition duration-300">La Normativa</a></li>
@@ -102,6 +104,7 @@
                 <li><a href="contacto.html" class="bg-accent text-white px-4 py-2 rounded-full hover:bg-accent-hover transition duration-300">Contacto</a></li>
             </ul>
 
+            <!-- Botón de menú móvil -->
             <div class="md:hidden">
                 <button id="menu-btn" class="text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -109,6 +112,7 @@
             </div>
         </div>
         
+        <!-- Menú desplegable móvil -->
         <div id="mobile-menu" class="hidden md:hidden bg-base">
             <ul class="flex flex-col items-center mt-4 space-y-4 pb-4">
                 <li><a href="servicios.html" class="text-white hover:text-accent transition duration-300">Servicios</a></li>
@@ -120,12 +124,7 @@
         </div>
     </nav>
 
-    <div id="alert-bar" class="bg-red-600 text-white px-4 py-2 text-center text-sm sm:text-base font-bold fixed top-0 w-full z-50 flex justify-center items-center shadow-lg">
-        <p>⚠️ Durante 2025, las inspecciones se han intensificado. ¿Tienes tu carta actualizada?</p>
-        <button onclick="document.getElementById('alert-bar').style.display='none'" class="ml-4 text-xl font-bold hover:text-yellow-300 transition-colors" aria-label="Cerrar alerta">&times;</button>
-    </div>
-    
-    <div style="padding-top: 88px;"> 
+    <div class="pt-16"> <!-- Padding para compensar el nav fijo -->
     <header class="hero-bg text-white"> 
         <div class="container mx-auto px-4 py-16 md:py-24 text-center">
             <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-white font-heading">¿Multas de hasta <span class="text-accent">600.000€</span> por Alérgenos?</h1>
@@ -136,15 +135,6 @@
     </header>
 
     <main>
-        <section id="oferta" class="py-12 bg-accent">
-            <div class="container mx-auto px-4 text-center text-white">
-                <h3 class="text-xl sm:text-2xl font-bold font-heading">Oferta Especial</h3>
-                <p class="mt-2 max-w-2xl mx-auto">Te hacemos tu presupuesto GRATIS y personalizado para tu local. Aprovecha un <span class="font-extrabold">50% de Descuento</span> en tu Paquete de Cumplimiento Normativo.</p>
-                <p class="text-sm mt-2">Es el momento perfecto para asegurar tu negocio. ¡No dejes pasar esta oportunidad!</p>
-                <a href="contacto.html" class="mt-4 inline-block bg-base hover:bg-base-lighter text-white font-bold py-2 px-4 md:px-6 rounded-full text-base transition duration-300">Solicitar Presupuesto con Descuento</a>
-            </div>
-        </section>
-
         <section id="servicio" class="py-16 md:py-24">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white font-heading">Nuestros Servicios: Tu Tranquilidad Garantizada</h2>
