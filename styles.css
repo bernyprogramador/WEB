@@ -1,0 +1,202 @@
+:root {
+  --bg-primary: #070b12;
+  --bg-secondary: #0d1118;
+  --card-bg: #121821;
+  --card-border: #ffffff14;
+  --text-primary: #ffffff;
+  --text-secondary: #d0d5dd;
+  --accent: #ff3b30;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--text-primary);
+  background:
+    radial-gradient(circle at top right, #18253666, transparent 40%),
+    repeating-linear-gradient(135deg, #ffffff06 0px, #ffffff06 1px, transparent 1px, transparent 14px),
+    linear-gradient(170deg, var(--bg-primary), var(--bg-secondary));
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 12mm;
+}
+
+.menu-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 7mm;
+}
+
+.menu-header {
+  text-align: center;
+  break-inside: avoid;
+}
+
+.menu-title {
+  margin: 0;
+  font-size: 14.5mm;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.menu-subtitle,
+.menu-sauces {
+  margin: 2mm 0 0;
+  font-size: 3.6mm;
+}
+
+.menu-subtitle {
+  color: var(--text-secondary);
+}
+
+.menu-sauces {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5.5mm;
+}
+
+.menu-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5mm;
+}
+
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 4.5mm;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8mm;
+}
+
+.menu-card {
+  background: var(--card-bg);
+  border: 0.25mm solid var(--card-border);
+  border-radius: 3mm;
+  box-shadow: 0 1.2mm 3.2mm #00000033;
+  padding: 3.2mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 3mm;
+}
+
+.item-name,
+.item-price {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.item-name {
+  font-size: 3.7mm;
+}
+
+.item-price {
+  font-size: 3.8mm;
+  white-space: nowrap;
+}
+
+.item-bullets {
+  margin: 0;
+  padding-left: 5mm;
+  color: var(--text-secondary);
+  font-size: 3.2mm;
+  line-height: 1.35;
+  display: grid;
+  gap: 1mm;
+}
+
+.allergens-box {
+  min-height: 9mm;
+  border: 0.2mm solid #ffffff35;
+  border-radius: 1.6mm;
+  color: #aeb6c2;
+  font-size: 2.8mm;
+  letter-spacing: 0.25px;
+  display: flex;
+  align-items: center;
+  padding: 1.7mm 2.2mm;
+}
+
+.menu-footer {
+  margin-top: auto;
+  border-top: 0.25mm solid #ffffff1f;
+  padding-top: 3mm;
+  display: grid;
+  gap: 1.2mm;
+  break-inside: avoid;
+}
+
+.menu-footer p {
+  margin: 0;
+  font-size: 3.2mm;
+  color: var(--text-secondary);
+}
+
+.menu-footer span {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    margin: 0;
+  }
+}
