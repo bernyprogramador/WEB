@@ -1,0 +1,13 @@
+{
+  "name": "BCA MVP - Scenario 2 Inbound Reply",
+  "nodes": [
+    {"name": "Webhook Inbound", "type": "n8n-nodes-base.webhook", "parameters": {"path": "bca/inbound", "httpMethod": "POST"}},
+    {"name": "Log User Message", "type": "n8n-nodes-base.googleSheets", "parameters": {"operation": "append", "sheet": "Messages"}},
+    {"name": "Load Lead + KB", "type": "n8n-nodes-base.googleSheets", "parameters": {"operation": "lookup"}},
+    {"name": "Scoring + Guardrails", "type": "n8n-nodes-base.function", "parameters": {"functionCode": "// use deterministic rules from agent_engine.py"}},
+    {"name": "Escalate?", "type": "n8n-nodes-base.if", "parameters": {}},
+    {"name": "Send Agent Reply", "type": "n8n-nodes-base.httpRequest", "parameters": {"url": "https://api.twilio.com/...", "method": "POST"}},
+    {"name": "Reschedule Followups", "type": "n8n-nodes-base.function", "parameters": {"functionCode": "// cancel if user replied, else reset"}}
+  ],
+  "active": false
+}

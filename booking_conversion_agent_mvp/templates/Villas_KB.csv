@@ -1,0 +1,2 @@
+villa_id,name,language_default,tone_guidelines,faq,policies,allowed_price_range_text,min_budget,escalation_rules_override,policies_fully_defined
+VILLA001,Villa Mar Azul,es,"Premium, humano, breve, sin promesas no verificadas","Check-in 16:00; check-out 11:00; chef privado opcional","Cancelación flexible 30 días; depósito 30%","Desde EUR 1.200 a 2.500 por noche (orientativo)",1200,"Escalar siempre si piden precio/disponibilidad exacta",FALSE
