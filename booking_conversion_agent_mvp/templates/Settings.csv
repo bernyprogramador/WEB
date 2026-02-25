@@ -1,0 +1,13 @@
+key,value,description
+manager_phone,+34111111111,WhatsApp/Teléfono del manager
+manager_email,manager@villa.com,Email de alertas
+slack_webhook_url,https://hooks.slack.com/services/XXX,Canal opcional
+llm_model,gpt-4.1-mini,Modelo conversacional
+openai_api_key,REPLACE_ME,API key
+followup_1_template_es,"Solo para confirmar: ¿te reservo opciones para tus fechas?",Plantilla +30m
+followup_2_template_es,"Si quieres, te comparto 2 opciones que encajan con tu viaje. ¿Qué presupuesto manejas por noche?",Plantilla +4h
+followup_3_template_es,"Cierro por ahora para no molestarte. Si te viene bien, retomo en cuanto me indiques fechas.",Plantilla +24h
+followup_1_template_en,"Quick check-in: would you like me to shortlist options for your dates?",Template +30m
+followup_2_template_en,"I can share two villa options matching your trip. What nightly budget should I target?",Template +4h
+followup_3_template_en,"I’ll close this thread for now to avoid noise. Happy to resume whenever you share your dates.",Template +24h
+privacy_notice,"Usamos tus datos únicamente para gestionar tu consulta y reserva.",Privacidad mínima

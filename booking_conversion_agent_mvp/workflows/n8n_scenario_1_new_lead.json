@@ -1,0 +1,12 @@
+{
+  "name": "BCA MVP - Scenario 1 New Lead",
+  "nodes": [
+    {"name": "Webhook New Lead", "type": "n8n-nodes-base.webhook", "parameters": {"path": "bca/new-lead", "httpMethod": "POST"}},
+    {"name": "Validate Payload", "type": "n8n-nodes-base.function", "parameters": {"functionCode": "return items;"}},
+    {"name": "Create Lead Row", "type": "n8n-nodes-base.googleSheets", "parameters": {"operation": "append", "sheet": "Leads"}},
+    {"name": "Log First Message", "type": "n8n-nodes-base.googleSheets", "parameters": {"operation": "append", "sheet": "Messages"}},
+    {"name": "Send Initial Message", "type": "n8n-nodes-base.httpRequest", "parameters": {"url": "https://api.twilio.com/...", "method": "POST"}},
+    {"name": "Schedule Followups", "type": "n8n-nodes-base.function", "parameters": {"functionCode": "// set 30m,4h,24h timers"}}
+  ],
+  "active": false
+}

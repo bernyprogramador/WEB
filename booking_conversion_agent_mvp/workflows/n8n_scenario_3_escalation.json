@@ -1,0 +1,11 @@
+{
+  "name": "BCA MVP - Scenario 3 Escalation",
+  "nodes": [
+    {"name": "Trigger Escalation", "type": "n8n-nodes-base.executeWorkflowTrigger", "parameters": {}},
+    {"name": "Generate Internal Brief", "type": "n8n-nodes-base.function", "parameters": {"functionCode": "// summary, key_data, objections, next_step"}},
+    {"name": "Update Lead HUMAN_REQUIRED", "type": "n8n-nodes-base.googleSheets", "parameters": {"operation": "update", "sheet": "Leads"}},
+    {"name": "Notify Manager WhatsApp", "type": "n8n-nodes-base.httpRequest", "parameters": {"url": "https://api.twilio.com/...", "method": "POST"}},
+    {"name": "Notify Manager Email", "type": "n8n-nodes-base.emailSend", "parameters": {"toEmail": "={{$json.manager_email}}"}}
+  ],
+  "active": false
+}
